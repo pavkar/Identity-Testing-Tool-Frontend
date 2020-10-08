@@ -1,0 +1,88 @@
+{
+  "Signature Certificate": [
+    {
+      "Signature Serial Number": "168068753798411351753082928809074577014",
+      "Signature Subject": [
+        {
+          "SURNAME": "ER?ETIN",
+          "C": "EE",
+          "SERIALNUMBER": "PNOEE-36908209993",
+          "CN": "\"ER?ETIN,MÂNI ÖZER,36908209993\"",
+          "GIVENNAME": "MÂNI ÖZER"
+        }
+      ],
+      "Signature Issuer": [
+        {
+          "OID.2.5.4.97": "NTREE-10747013",
+          "C": "EE",
+          "CN": "TEST of ESTEID2018",
+          "O": "SK ID Solutions AS"
+        }
+      ]
+    }
+  ],
+  "CPLC": [
+    {
+      "IC Type": "2A47",
+      "Pre-personalization Date": "2311",
+      "IC ModulePackaging Date": "0011",
+      "Personalization Equipment": "45009202",
+      "IC Embedding Date": "2311",
+      "IC Batch Identifier": "0C65",
+      "IC ModuleFabricator": "C025",
+      "ICC Manufacturer": "4283",
+      "Personalizer Identifier": "0200",
+      "IC Fabrication Date": "8100",
+      "Personalization Date": "0011",
+      "Pre-personalization Equipment": "44832314",
+      "IC Serial Number": "9A805748",
+      "IC Fabricator": "9F7F",
+      "Operating System": "906B",
+      "Operating System Release Level": "3171",
+      "Operating System Release Date": "4882",
+      "Pre-personalizer Identifier": "4383"
+    }
+  ],
+  "PersonalData": [
+    {
+      "Notes line 3": "Empty",
+      "Notes line 4": "Empty",
+      "Notes line 1": "Empty",
+      "Notes line 2": "Empty",
+      "Date and place of issuance": "01 04 2020",
+      "Sex": "Empty",
+      "Citizenship": "Empty",
+      "Type of residence permit": "Empty",
+      "Date and place of birth": "Empty",
+      "Personal identification code": "36908209993",
+      "Notes line 5": "Empty",
+      "Expiry date": "01 04 2025",
+      "Document number": "US0012186",
+      "First name": "MÂNI ÖZER",
+      "Surname": "ER?ETIN"
+    }
+  ],
+  "Authentication Certificate": [
+    {
+      "Authoentication Subject": [
+        {
+          "SURNAME": "ER?ETIN",
+          "C": "EE",
+          "SERIALNUMBER": "PNOEE-36908209993",
+          "CN": "\"ER?ETIN,MÂNI ÖZER,36908209993\"",
+          "GIVENNAME": "MÂNI ÖZER"
+        }
+      ],
+      "Authoentication Serial Number": "158177845021299514485569162640279381404",
+      "Authoentication Issuer": [
+        {
+          "OID.2.5.4.97": "NTREE-10747013",
+          "C": "EE",
+          "CN": "TEST of ESTEID2018",
+          "O": "SK ID Solutions AS"
+        }
+      ]
+    }
+  ],
+  "ATR": "3BDB960080B1FE451F830012233F536549440F9000F1"
+}

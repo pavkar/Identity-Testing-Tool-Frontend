@@ -1,7 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import MainScreen from "./MainScreen";
-import * as serviceWorker from './serviceWorker';
+import AllFilesView from "./AllFilesView";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
@@ -9,6 +11,7 @@ import "mdbreact/dist/css/mdb.css";
 ReactDOM.render(
   <React.StrictMode>
     <MainScreen />
+    <AllFilesView />
   </React.StrictMode>,
   document.getElementById("root")
 );

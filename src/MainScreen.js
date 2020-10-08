@@ -11,19 +11,71 @@ import {
   MDBBtn,
 } from "mdbreact";
 import SectionContainer from "./components/sectionContainer";
+import terminalJSON from "./terminals.json";
 
-function DropDownFileType() {
-  return (
-    <MDBDropdown>
-      <MDBDropdownToggle caret color="primary">
-        File Type
-      </MDBDropdownToggle>
-      <MDBDropdownMenu basic>
-        <MDBDropdownItem>JSON</MDBDropdownItem>
-        <MDBDropdownItem>Plain Text</MDBDropdownItem>
-      </MDBDropdownMenu>
-    </MDBDropdown>
-  );
+class DropDownTerminal extends React.Component {
+  state = {
+    terminals: this.props.terminals,
+    terminal: this.props.terminals[0],
+  };
+
+  terminalSetState = (terminal) => {
+    this.setState({
+      terminal: terminal,
+    });
+  };
+  listOfTerminals = () => {
+    return this.state.terminals.map((t) => (
+      <MDBDropdownItem onClick={() => this.terminalSetState(t)}>{t}</MDBDropdownItem>
+    ));
+  };
+
+  render() {
+    return (
+      <MDBDropdown>
+        <MDBDropdownToggle caret color="default">
+          {this.state.terminal}
+        </MDBDropdownToggle>
+        <MDBDropdownMenu basic>{this.listOfTerminals()}</MDBDropdownMenu>
+      </MDBDropdown>
+    );
+  }
+}
+
+class DropDownFileType extends React.Component {
+  state = {
+    fileType: "JSON",
+  };
+
+  fileTypeSet = (type) => {
+    this.setState({
+      fileType: type,
+    });
+  };
+
+  render() {
+    return (
+      <MDBDropdown>
+        <MDBDropdownToggle caret color="default">
+          {this.state.fileType}
+        </MDBDropdownToggle>
+        <MDBDropdownMenu basic>
+          <MDBDropdownItem
+            value=".json"
+            onClick={() => this.fileTypeSet("JSON")}
+          >
+            JSON
+          </MDBDropdownItem>
+          <MDBDropdownItem
+            value=".txt"
+            onClick={() => this.fileTypeSet("Plain Text")}
+          >
+            Plain Text
+          </MDBDropdownItem>
+        </MDBDropdownMenu>
+      </MDBDropdown>
+    );
+  }
 }
 
 class CANInputField extends React.Component {
@@ -44,7 +96,7 @@ class CANInputField extends React.Component {
     if (this.state.nfc) {
       this.setState({
         iconInput: "eye",
-        typeInput: "password",
+        typeInput: "text",
       });
     }
   };
@@ -70,7 +122,7 @@ class CANInputField extends React.Component {
             NFC Reading
           </label>
         </div>
-        { this.state.nfc ?
+        {this.state.nfc ? (
           <MDBInput
             label="CAN Input"
             disabled={!this.state.nfc}
@@ -80,8 +132,8 @@ class CANInputField extends React.Component {
             onIconMouseEnter={this.mouseEnter}
             onIconMouseLeave={this.mouseLeave}
             required
-          /> : ""
-        }
+          />
+        ) : undefined}
       </MDBContainer>
     );
   }
@@ -112,7 +164,8 @@ class MainScreen extends React.Component {
     const { value } = this.state;
     return (
       <MDBContainer className="mt-5" title="Inputs">
-        <SectionContainer header="Scanning Tool">
+        <SectionContainer style={{ backgroundColor: "white" }}>
+          <h2>Scanning Tool</h2>
           <MDBRow>
             <MDBCol md="6">
               <MDBInput
@@ -122,7 +175,6 @@ class MainScreen extends React.Component {
                 valueDefault="TestFile"
               />
             </MDBCol>
-
             <MDBCol md="6">
               <DropDownFileType />
             </MDBCol>
@@ -132,7 +184,12 @@ class MainScreen extends React.Component {
               <CANInputField />
             </MDBCol>
           </MDBRow>
-          <MDBBtn onClick={this.handleSubmit}>Submit</MDBBtn>
+          <MDBRow>
+            <MDBCol md="3">
+              <DropDownTerminal terminals={terminalJSON.terminals} />
+            </MDBCol>
+            <MDBBtn onClick={this.handleSubmit}>Submit</MDBBtn>
+          </MDBRow>
         </SectionContainer>
       </MDBContainer>
     );
