@@ -8,7 +8,7 @@ import {
   MDBModalFooter,
   MDBIcon,
 } from "mdbreact";
-import dataJSON from "./mock/NewID.json";
+import dataJSON from "../mock/NewID.json";
 
 function JsonFileClean(props) {
   return Object.keys(props.data).map((key, i) => (
@@ -64,27 +64,27 @@ class OverviewFile extends Component {
   };
   render() {
     return (
-        <MDBContainer>
-          <MDBBtn onClick={this.toggle} size="sm">
-            <MDBIcon far icon="eye" />
+      <MDBContainer>
+        <MDBBtn onClick={this.toggle} size="sm">
+          <MDBIcon far icon="eye" />
+        </MDBBtn>
+        <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+          <MDBModalHeader toggle={this.toggle}>
+            {this.state.dataType}
+          </MDBModalHeader>
+          <MDBBtn color="warning" onClick={this.rawBtn}>
+            {this.state.rawBtnText}
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-            <MDBModalHeader toggle={this.toggle}>
-              {this.state.dataType}
-            </MDBModalHeader>
-            <MDBBtn color="warning" onClick={this.rawBtn}>
-              {this.state.rawBtnText}
+          <MDBModalBody>
+            <ShowedText raw={this.state.raw} data={this.state.data} />
+          </MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn color="red" size="sm" onClick={this.toggle}>
+              Close
             </MDBBtn>
-            <MDBModalBody>
-              <ShowedText raw={this.state.raw} data={this.state.data} />
-            </MDBModalBody>
-            <MDBModalFooter>
-              <MDBBtn color="red" size="sm" onClick={this.toggle}>
-                Close
-              </MDBBtn>
-            </MDBModalFooter>
-          </MDBModal>
-        </MDBContainer>
+          </MDBModalFooter>
+        </MDBModal>
+      </MDBContainer>
     );
   }
 }

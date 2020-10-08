@@ -10,8 +10,8 @@ import {
   MDBDropdownMenu,
   MDBBtn,
 } from "mdbreact";
-import SectionContainer from "./components/sectionContainer";
-import terminalJSON from "./mock/terminals.json";
+import SectionContainer from "../components/sectionContainer";
+import terminalJSON from "../mock/terminals.json";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
@@ -28,7 +28,9 @@ class DropDownTerminal extends React.Component {
   };
   listOfTerminals = () => {
     return this.state.terminals.map((t) => (
-      <MDBDropdownItem onClick={() => this.terminalSetState(t)}>{t}</MDBDropdownItem>
+      <MDBDropdownItem onClick={() => this.terminalSetState(t)}>
+        {t}
+      </MDBDropdownItem>
     ));
   };
 

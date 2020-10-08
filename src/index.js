@@ -1,15 +1,17 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import MainScreen from "./MainScreen";
-import AllFilesView from "./AllFilesView";
-import "./index.css";
-import * as serviceWorker from "./serviceWorker";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
+import MainScreen from "./js/MainScreen";
+import AllFilesView from "./js/AllFilesView";
+import NavigationBar from "./js/NavigationBar";
+import * as serviceWorker from "./serviceWorker";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <NavigationBar /> */}
     <MainScreen />
     <AllFilesView />
   </React.StrictMode>,
