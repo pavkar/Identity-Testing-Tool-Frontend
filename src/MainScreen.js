@@ -11,7 +11,9 @@ import {
   MDBBtn,
 } from "mdbreact";
 import SectionContainer from "./components/sectionContainer";
-import terminalJSON from "./terminals.json";
+import terminalJSON from "./mock/terminals.json";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 class DropDownTerminal extends React.Component {
   state = {
@@ -111,17 +113,17 @@ class CANInputField extends React.Component {
   render() {
     return (
       <MDBContainer>
-        <div class="custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            class="custom-control-input"
-            id="nfc"
-            onChange={() => this.toggleCheckbox(this.state.nfc)}
-          />
-          <label class="custom-control-label" for="nfc">
-            NFC Reading
-          </label>
-        </div>
+        <FormControlLabel
+          label="NFC Reading"
+          control={
+            <Checkbox
+              id="nfc"
+              color="primary"
+              onChange={() => this.toggleCheckbox(this.state.nfc)}
+            ></Checkbox>
+          }
+        />
+
         {this.state.nfc ? (
           <MDBInput
             label="CAN Input"

@@ -8,7 +8,7 @@ import {
   MDBModalFooter,
   MDBIcon,
 } from "mdbreact";
-import dataJSON from "./NewID";
+import dataJSON from "./mock/NewID.json";
 
 function JsonFileClean(props) {
   return Object.keys(props.data).map((key, i) => (
